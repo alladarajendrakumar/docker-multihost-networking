@@ -11,7 +11,7 @@ docker-machine create \
     -d vmwarefusion \
     etcd
 
-# set the HOSTIP enviornment variable
+# set the HOSTIP enviornment variable to etcd host
 export HOSTIP=$(docker-machine ip etcd)
 
 # Bootstrap the etcd container on the host
