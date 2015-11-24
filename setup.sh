@@ -37,5 +37,5 @@ docker $(docker-machine config node1) network create -d overlay mynet
 # Run the Nginx container on node1
 docker $(docker-machine config node1) run -itd --name=web --net=mynet nginx
 
-# Run the busybox client on node2
+# Run the busybox container on node2
 docker $(docker-machine config node2) run -it --rm --net=mynet busybox wget -qO- http://web
