@@ -11,8 +11,11 @@ docker-machine create \
     -d vmwarefusion \
     etcd
 
-# set the HOSTIP enviornment variable to etcd host
+# Set the HOSTIP enviornment variable to etcd host
 export HOSTIP=$(docker-machine ip etcd)
+
+# Point Docker client to etcd host
+eval $(docker-machine env etcd)
 
 # Bootstrap the etcd container on the host
 docker run -d -p 4001:4001 -p 2380:2380 -p 2379:2379 --name etcd quay.io/coreos/etcd:v2.0.3 \
